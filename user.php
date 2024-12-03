@@ -66,8 +66,8 @@ $conn->close();
             <nav>
                 <ul class="nav-links">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Matches</a></li>
-                    <li><a href="#">Messages</a></li>
+                    <li><a href="match.php">Matches</a></li>
+                    <li><a href="message_section.php">Messages</a></li>
                     <li><a href="user_profile.html">Profile</a></li>
                     <li><a href="logout.php" class="logout">Logout</a></li>
                 </ul>
@@ -86,7 +86,7 @@ $conn->close();
             <?php endif; ?>
 
             <p>Discover your perfect match today. Start exploring!</p>
-<a href="match.php" class="btn explore-button">Explore Matches</a>
+<a href="explore_match.php" class="btn explore-button">Explore Matches</a>
         </section>
 
         <!-- Featured Matches Section -->

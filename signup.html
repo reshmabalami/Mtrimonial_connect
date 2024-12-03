@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +6,18 @@
     <title>Sign Up - Matrimonial Connect</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script>
+        function validateForm() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 <body>
 
@@ -28,7 +39,7 @@
     <section class="signup-section">
         <h2>Sign Up</h2>
         <p>Join Matrimonial Connect to start your journey toward finding your perfect match!</p>
-        <form action="signup.php" method="POST" class="signup-form">
+        <form action="signup.php" method="POST" class="signup-form" onsubmit="return validateForm()">
             <label for="name">Full Name:</label>
             <input type="text" id="name" name="name" placeholder="Enter your full name" required>
 
@@ -37,6 +48,9 @@
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" placeholder="Create a password" required>
+
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" required>
 
             <label for="age">Age:</label>
             <input type="number" id="age" name="age" placeholder="Enter your age" min="18" required>
@@ -48,9 +62,6 @@
                 <option value="female">Female</option>
                 <option value="other">Other</option>
             </select>
-
-            <label for="bio">Short Bio:</label>
-            <textarea id="bio" name="bio" placeholder="Tell us about yourself" rows="4"></textarea>
 
             <button type="submit" class="cta-button">Sign Up</button>
             <a href="login.html" style="padding-top: 20px; display: block;">Already have an account?</a>

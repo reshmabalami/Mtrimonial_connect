@@ -21,18 +21,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash password
     $age = (int)$_POST['age'];
     $gender = htmlspecialchars($_POST['gender']);
-    $bio = htmlspecialchars($_POST['bio']);
 
     try {
         // Prepare SQL statement
-        $stmt = $conn->prepare("INSERT INTO users (full_name, email, password, age, gender, bio) 
-                                VALUES (:full_name, :email, :password, :age, :gender, :bio)");
+        $stmt = $conn->prepare("INSERT INTO users (full_name, email, password, age, gender) 
+                                VALUES (:full_name, :email, :password, :age, :gender)");
         $stmt->bindParam(':full_name', $full_name);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $password);
         $stmt->bindParam(':age', $age);
         $stmt->bindParam(':gender', $gender);
-        $stmt->bindParam(':bio', $bio);
 
         // Execute the query
         $stmt->execute();
