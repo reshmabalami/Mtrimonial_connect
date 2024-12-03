@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fcbf49, #d57b3b);
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #2c3e50;
+}
+
+.navbar a {
+    color: white;
+}
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.profile-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.save-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #16a085;
+    color: white;
+    border: none;
+    font-size: 18px;
+}
+
+
+/* Gender Options Styling */
+.gender-options {
+    display: flex;
+    justify-content: flex-start; /* Aligns all options to the left */
+    align-items: center; /* Vertically aligns radio buttons with text */
+    gap: 15px; /* Space between radio button-label pairs */
+}
+
+/* Radio Button Styling */
+.gender-options input[type="radio"] {
+    margin-right: 5px; /* Space between radio button and label text */
+    cursor: pointer;
+}
+
+/* Label for Gender Options */
+.gender-options label {
+    font-size: 14px; /* Adjust text size */
+    cursor: pointer;
+}
+
+
+/* Highlight Selected Option */
+.gender-options input[type="radio"]:checked + label {
+    font-weight: bold; /* Highlight selected option */
+}

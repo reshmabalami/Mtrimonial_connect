@@ -1,0 +1,179 @@
+/* General Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(120deg, #ffb347, #ffcc33); /* Yellow to Orange Gradient */
+    color: #333333; /* Neutral Text Color */
+    overflow-x: hidden;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Navbar Section */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: rgba(255, 192, 0, 0.9); /* Muted Yellow */
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.dashboard-header h1 {
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    font-size: 16px;
+    color: #ffffff;
+    cursor: pointer;
+    position: relative;
+}
+
+.nav-links li::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #ffffff;
+    transition: width 0.3s ease;
+}
+
+.nav-links li:hover::after {
+    width: 100%;
+}
+
+.nav-links .logout {
+    color: #ff6b6b; /* Logout in Red */
+}
+
+/* Welcome Section */
+.welcome-section {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.9); /* Translucent White */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    animation: popIn 1s ease-in-out;
+}
+
+.welcome-section h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #f57c00; /* Bright Orange */
+}
+
+.welcome-section p {
+    font-size: 18px;
+    color: #555555;
+    margin-bottom: 30px;
+}
+
+.explore-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ff5722; /* Bright Red-Orange */
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.explore-button:hover {
+    background-color: #e64a19; /* Darker Red-Orange */
+    transform: scale(1.05);
+}
+
+/* Matches Section */
+.matches-section {
+    margin: 40px 0;
+}
+
+.matches-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #ff5722; /* Bright Orange */
+}
+
+.matches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.match-card {
+    background: rgba(255, 255, 255, 0.85); /* Translucent White */
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.match-card:hover {
+    transform: translateY(-10px);
+}
+
+.match-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.connect-button {
+    background-color: #ff5722; /* Bright Orange */
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.connect-button:hover {
+    background-color: #e64a19; /* Darker Orange */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

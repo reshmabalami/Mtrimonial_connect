@@ -1,0 +1,37 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Matrimonial Connect</title>
+    <link rel="stylesheet" href="header-footer.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">Matrimonial Connect</div>
+        <ul class="navbar-links">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+            <li><a href="login.html">Sign In</a></li>
+        </ul>
+    </nav>
+    <?php include 'header.html'; ?>
+
+    <section class="login-section">
+        <form action="login.php" method="POST" class="login-form">
+            <h2>Login</h2>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <button type="submit" class="cta-button">Login</button>
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </form>
+    </section>
+
+</body>
+</html>

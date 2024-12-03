@@ -1,0 +1,235 @@
+<?php
+// Start the session
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    // If not logged in, redirect to the login page
+    header("Location: login.html");
+    exit();
+}
+
+// Retrieve the user's name from session
+$user_name = $_SESSION['user_name'];
+$user_id=$_SESSION['user_id'];
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="user_profile.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="home.html">Home</a>
+        <a href="#profile">Profile</a>
+        <a href="logout.php">Logout</a>
+    </div>
+
+    <!-- Profile Form Container -->
+    <div class="profile-container">
+        <div class="profile-box">
+            <h2>Edit Your Profile</h2>
+
+            <!-- Profile Form -->
+            <form action="user_profile.php" method="POST" enctype="multipart/form-data">
+
+                <!-- Profile Picture -->
+                <div class="form-group">
+                    <label for="profilePhoto">Profile Picture:</label>
+                    <div class="profile-picture-container">
+                        <img src="default-profile.jpg" alt="Profile Picture" id="profilePicture">
+                        <input type="file" id="profilePhoto" name="profile_picture" accept="image/*">
+                    </div>
+                </div>
+
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                </div>
+
+                <!-- Date of Birth -->
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" required onchange="calculateAge()">
+                </div>
+
+                <!-- Age -->
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="text" id="age" name="age" placeholder="Your age" readonly required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <div class="gender-options">
+                        <label>
+                            <input type="radio" id="genderMale" name="gender" value="Male" required> Male
+                        </label>
+                        <label>
+                            <input type="radio" id="genderFemale" name="gender" value="Female" required> Female
+                        </label>
+                        <label>
+                            <input type="radio" id="genderOther" name="gender" value="Other" required> Other
+                        </label>
+                    </div>
+                </div>
+                
+
+                <!-- Nationality -->
+                <div class="form-group">
+                    <label for="nationality">Nationality:</label>
+                    <select id="nationality" name="nationality" required>
+                        <option value="Nepali">Nepali</option>
+                        <option value="Indian">Indian</option>
+                        <option value="American">American</option>
+                        <option value="British">British</option>
+                        <option value="Australian">Australian</option>
+                        <option value="Canadian">Canadian</option>
+                        <option value="Chinese">Chinese</option>
+                        <option value="Japanese">Japanese</option>
+                        <option value="Korean">Korean</option>
+                        <option value="French">French</option>
+                        <option value="German">German</option>
+                    </select>
+                </div>
+
+                <!-- Religion -->
+                <div class="form-group">
+                    <label for="religion">Religion:</label>
+                    <select id="religion" name="religion" required>
+                        <option value="Hindu">Hindu</option>
+                        <option value="Buddhist">Buddhist</option>
+                        <option value="Christian">Christian</option>
+                        <option value="Muslim">Muslim</option>
+                        <option value="Sikh">Sikh</option>
+                        <option value="Jewish">Jewish</option>
+                        <option value="Jain">Jain</option>
+                        <option value="Atheist">Atheist</option>
+                        <option value="Taoist">Taoist</option>
+                        <option value="Shinto">Shinto</option>
+                    </select>
+                </div>
+
+                <!-- Living Country -->
+                <div class="form-group">
+                    <label for="living_country">Living in Country:</label>
+                    <select id="living_country" name="living_country" required>
+                        <option value="Nepal">Nepal</option>
+                        <option value="India">India</option>
+                        <option value="USA">USA</option>
+                        <option value="Canada">Canada</option>
+                        <option value="UK">UK</option>
+                        <option value="Australia">Australia</option>
+                        <option value="China">China</option>
+                        <option value="Germany">Germany</option>
+                        <option value="France">France</option>
+                        <option value="Japan">Japan</option>
+                        <option value="South Korea">South Korea</option>
+                        <option value="Brazil">Brazil</option>
+                    </select>
+                </div>
+
+                <!-- Contact -->
+                <div class="form-group">
+                    <label for="contact">Contact Number:</label>
+                    <input type="text" id="contact" name="contact" required>
+                </div>
+
+                <!-- Profession -->
+                <div class="form-group">
+                    <label for="profession">Profession:</label>
+                    <select id="profession" name="profession" required>
+                        <option value="Software Developer">Software Developer</option>
+                        <option value="Engineer">Engineer</option>
+                        <option value="Teacher">Teacher</option>
+                        <option value="Doctor">Doctor</option>
+                        <option value="Designer">Designer</option>
+                        <option value="Artist">Artist</option>
+                        <option value="Writer">Writer</option>
+                        <option value="Chef">Chef</option>
+                        <option value="Scientist">Scientist</option>
+                        <option value="Entrepreneur">Entrepreneur</option>
+                    </select>
+                </div>
+
+                <!-- Study Level -->
+                <div class="form-group">
+                    <label for="study_level">Study Level:</label>
+                    <select id="study_level" name="study_level" required>
+                        <option value="High School">High School</option>
+                        <option value="Diploma">Diploma</option>
+                        <option value="Bachelor's">Bachelor's</option>
+                        <option value="Master's">Master's</option>
+                        <option value="PhD">PhD</option>
+                        <option value="Certificate">Certificate</option>
+                        <option value="Associate Degree">Associate Degree</option>
+                        <option value="Postdoctoral">Postdoctoral</option>
+                        <option value="Vocational Training">Vocational Training</option>
+                        <option value="Professional Training">Professional Training</option>
+                    </select>
+                </div>
+
+                <!-- Degree Obtained -->
+                <div class="form-group">
+                    <label for="degree_obtained">Degree Obtained:</label>
+                    <select id="degree_obtained" name="degree_obtained" required>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Medicine">Medicine</option>
+                        <option value="Law">Law</option>
+                        <option value="Arts">Arts</option>
+                        <option value="Business Administration">Business Administration</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Physics">Physics</option>
+                    </select>
+                </div>
+
+                <!-- Height -->
+                <div class="form-group">
+                    <label for="height">Height (in cm):</label>
+                    <input type="number" id="height" name="height" required>
+                </div>
+
+                <!-- Partner's Age Range -->
+                <div class="form-group">
+                    <label for="age_range">Looking for Partner's Age Range:</label>
+                    <div class="age-range-group">
+                        <input type="number" id="age_range_min" name="age_range_min" placeholder="Min Age" min="18" required>
+                        <input type="number" id="age_range_max" name="age_range_max" placeholder="Max Age" min="18" required>
+                    </div>
+                </div>
+
+                <!-- Hobbies -->
+                <div class="form-group">
+                    <label for="hobbies">Hobbies:</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="hobbies[]" value="Travelling"> Travelling</label>
+                        <label><input type="checkbox" name="hobbies[]" value="Reading"> Reading</label>
+                        <label><input type="checkbox" name="hobbies[]" value="Cooking"> Cooking</label>
+                        <label><input type="checkbox" name="hobbies[]" value="Music"> Music</label>
+                        <label><input type="checkbox" name="hobbies[]" value="Photography"> Photography</label>
+                        <label><input type="checkbox" name="hobbies[]" value="Sports"> Sports</label>
+                        <label><input type="checkbox" name="hobbies[]" value="Dancing"> Dancing</label>
+                        <label><input type="checkbox" name="hobbies[]" value="Gaming"> Gaming</label>
+                        <label><input type="checkbox" name="hobbies[]" value="Gardening"> Gardening</label>
+                        <label><input type="checkbox" name="hobbies[]" value="Movies"> Watching Movies</label>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="save-button">Save Profile</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="user_profile.js"></script>
+</body>
+</html>

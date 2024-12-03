@@ -1,0 +1,97 @@
+/* login-style.css */
+
+/* Full-page background image with transparency */
+body {
+    background: url('images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0c040;
+}
+
+/* Login Section Styling */
+.login-section {
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    text-align: center;
+}
+
+.login-form h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 25px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 60px;
+}
+
+.cta-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background-color: #f0c040;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 25px;
+
+}
+
+.cta-button:hover {
+    background-color: #e0b030;
+}
+
+
+
+/* Navbar Styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    z-index: 10;
+}
+
+.navbar-logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+}
+
+.navbar-links li {
+    margin: 0 15px;
+}
+
+.navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 21px;
+    transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+    color: #f0c040;
+}

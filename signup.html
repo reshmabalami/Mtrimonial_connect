@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Matrimonial Connect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <span class="matrimonial">Matrimonial</span>
+            <span class="connect">Connect</span>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="login.html">Sign In</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sign Up Section -->
+    <section class="signup-section">
+        <h2>Sign Up</h2>
+        <p>Join Matrimonial Connect to start your journey toward finding your perfect match!</p>
+        <form action="signup.php" method="POST" class="signup-form">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Create a password" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" placeholder="Enter your age" min="18" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="bio">Short Bio:</label>
+            <textarea id="bio" name="bio" placeholder="Tell us about yourself" rows="4"></textarea>
+
+            <button type="submit" class="cta-button">Sign Up</button>
+            <a href="login.html" style="padding-top: 20px; display: block;">Already have an account?</a>
+        </form>
+    </section>  
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Contact us: info@matrimonialconnect.com | +1 234 567 890</p>
+        <p>&copy; 2023 Matrimonial Connect. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
